@@ -1,0 +1,151 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      omega;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include        "include/initialConditions"
+
+dimensions      [0 0 -1 0 0 0 0];
+
+internalField   uniform $turbulentOmega;
+
+boundaryField
+{
+    //- Set patchGroups for constraint patches
+    #includeEtc "caseDicts/setConstraintTypes"
+
+    #include "include/fixedInlet"
+
+    ns_outlet
+    {
+        type            zeroGradient;
+        
+    }
+
+    ns_chlodnica_outlet
+    {
+        type            zeroGradient;
+        
+    }
+
+        wall-ns_air
+    {
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+    ns_03mm
+    {
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+    ns_rear_wing
+    {
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+
+    ns_rear_wheel
+    {
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+    ns_front_wheel
+    {
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+    ns_mono
+    {
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+    ns_driver
+    {
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+    ns_front_wing
+    {
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+    
+
+    ns_rear_body
+    {
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+    ns_dyf_secondary_channel
+    {
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+    ns_dyf_vortex
+    {
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+     ns_dyf_floor
+    {
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+     ns_dyf_main_channel
+    {
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+    
+
+    ns_road
+{
+        type            omegaWallFunction;
+        value           $internalField;
+    }
+
+    ns_symmetry
+    {
+        type            symmetry;
+        
+    }
+
+    ns_symmetry_side
+    {
+        type            symmetry;
+        
+    }
+
+    ns_symmetry_up
+    {
+        type            symmetry;
+        
+    }
+}
+
+
+// ************************************************************************* //

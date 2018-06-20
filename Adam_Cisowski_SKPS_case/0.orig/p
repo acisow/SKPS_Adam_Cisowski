@@ -1,0 +1,135 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include        "include/initialConditions"
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform $pressure;
+
+boundaryField
+{
+    
+
+    ns_inlet
+    {
+        type            zeroGradient;
+    }
+
+    ns_outlet
+    {
+        type            fixedValue;
+        value           $internalField;
+    }
+
+    ns_chlodnica_outlet
+    {
+        type            fixedValue;
+        value           uniform 40;
+    }
+
+        wall-ns_air
+    {
+        type            zeroGradient;
+    }
+
+    ns_03mm
+    {
+        type            zeroGradient;
+    }
+
+    ns_rear_wing
+    {
+        type            zeroGradient;
+    }
+
+    ns_rear_wheel
+    {
+        type            zeroGradient;
+    }
+
+    ns_front_wheel
+    {
+        type            zeroGradient;
+    }
+
+    ns_mono
+    {
+        type            zeroGradient;
+    }
+
+    ns_driver
+    {
+        type            zeroGradient;
+    }
+
+    ns_front_wing
+    {
+        type            zeroGradient;
+    }
+
+    ns_dyf_secondary_channel
+    {
+        type            zeroGradient;
+    }
+
+    ns_rear_body
+    {
+        type            zeroGradient;
+    }
+
+    ns_dyf_vortex
+    {
+        type            zeroGradient;
+    }
+ns_dyf_floor
+    {
+        type            zeroGradient;
+    }
+
+    ns_dyf_main_channel
+    {
+        type            zeroGradient;
+    }
+
+    ns_road
+    {
+        type            zeroGradient;
+    }
+
+    ns_symmetry_side
+    {
+        type            symmetry;
+    }
+
+    
+
+    
+
+    ns_symmetry
+    {
+        type            symmetry;
+    }
+
+    ns_symmetry_up
+    {
+        type            symmetry;
+    }
+
+    
+}
+
+// ************************************************************************* //

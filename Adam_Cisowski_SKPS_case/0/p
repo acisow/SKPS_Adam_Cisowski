@@ -1,0 +1,109 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      binary;
+    class       volScalarField;
+    location    "0";
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    wall-ns_air
+    {
+        type            zeroGradient;
+    }
+    ns_symmetry
+    {
+        type            symmetry;
+    }
+    ns_symmetry_up
+    {
+        type            symmetry;
+    }
+    ns_outlet
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+    ns_road
+    {
+        type            zeroGradient;
+    }
+    ns_inlet
+    {
+        type            zeroGradient;
+    }
+    ns_symmetry_side
+    {
+        type            symmetry;
+    }
+    ns_mono
+    {
+        type            zeroGradient;
+    }
+    ns_rear_body
+    {
+        type            zeroGradient;
+    }
+    ns_driver
+    {
+        type            zeroGradient;
+    }
+    ns_dyf_secondary_channel
+    {
+        type            zeroGradient;
+    }
+    ns_dyf_vortex
+    {
+        type            zeroGradient;
+    }
+    ns_dyf_floor
+    {
+        type            zeroGradient;
+    }
+    ns_chlodnica_outlet
+    {
+        type            fixedValue;
+        value           uniform 40;
+    }
+    ns_front_wing
+    {
+        type            zeroGradient;
+    }
+    ns_03mm
+    {
+        type            zeroGradient;
+    }
+    ns_rear_wing
+    {
+        type            zeroGradient;
+    }
+    ns_rear_wheel
+    {
+        type            zeroGradient;
+    }
+    ns_front_wheel
+    {
+        type            zeroGradient;
+    }
+    ns_dyf_main_channel
+    {
+        type            zeroGradient;
+    }
+}
+
+
+// ************************************************************************* //

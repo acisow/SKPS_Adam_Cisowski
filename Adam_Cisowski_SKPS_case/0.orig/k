@@ -1,0 +1,153 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      k;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include        "include/initialConditions"
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform $turbulentKE;
+
+boundaryField
+{
+    //- Set patchGroups for constraint patches
+    #includeEtc "caseDicts/setConstraintTypes"
+
+    //- Define inlet conditions
+    #include "include/fixedInlet"
+
+    ns_outlet
+    {
+        type            zeroGradient;
+        
+    }
+
+    ns_chlodnica_outlet
+    {
+        type            zeroGradient;
+        
+    }
+
+    ns_03mm
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+
+    wall-ns_air
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+
+    
+
+    ns_rear_wing
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+
+    ns_rear_wheel
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+
+    ns_front_wheel
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+
+    ns_mono
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+
+    ns_driver
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+   
+    ns_front_wing
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+
+    
+
+    ns_rear_body
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+
+    ns_dyf_secondary_channel
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+
+    ns_dyf_vortex
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+
+    ns_dyf_floor
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+
+    ns_dyf_main_channel
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+
+
+    ns_road
+    {
+        type            kqRWallFunction;
+        value           $internalField;
+    }
+
+    
+
+    ns_symmetry
+    {
+	type		symmetry;
+    }
+
+    ns_symmetry_side
+    {
+	type		symmetry;
+    }
+
+    ns_symmetry_up
+    {
+	type		symmetry;
+    }
+
+    
+}
+
+
+// ************************************************************************* //
